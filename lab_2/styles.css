@@ -1,0 +1,364 @@
+/* Явне керування блоковою моделлю (Box Model) */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --border-color: #334155;
+    --accent-color: #38bdf8;
+    --accent-hover: #818cf8;
+}
+
+body.light-theme {
+    --bg-primary: #f1f5f9;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #e2e8f0;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --border-color: #cbd5e1;
+    --accent-color: #0284c7;
+    --accent-hover: #2563eb;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    padding: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Селектор ID */
+#main-header {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--bg-secondary);
+    border: 2px solid var(--border-color); /* border */
+    border-radius: 8px;
+    margin-bottom: 2rem; /* margin */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.header-top-bar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.theme-btn,
+.feedback-trigger-btn {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 0.45rem 0.9rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.theme-btn:hover,
+.feedback-trigger-btn:hover {
+    background-color: var(--accent-color);
+    color: #ffffff;
+}
+
+/* Селектори класів */
+.subtitle {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+}
+
+/* Flexbox для навігаційного меню */
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+/* 1-й псевдоклас: :hover */
+.nav-link:hover {
+    color: var(--accent-hover);
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.card {
+    background-color: var(--bg-secondary);
+    padding: 1.5rem; /* padding */
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.custom-list {
+    margin-left: 1.25rem;
+    margin-top: 0.5rem;
+}
+
+.date {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+/* CSS Grid Layout для навичок */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.skills-grid li {
+    background-color: var(--bg-tertiary);
+    padding: 0.75rem;
+    border-radius: 6px;
+    text-align: center;
+}
+
+/* 2-й псевдоклас: :nth-child */
+.skills-grid li:nth-child(even) {
+    border-left: 3px solid var(--accent-color);
+}
+
+/* Селектор атрибута */
+a[target="_blank"] {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--accent-color);
+}
+
+/* Коментарі роботодавців (Fetch API) */
+.comments-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 0.75rem;
+}
+
+.comment-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent-color);
+    border-radius: 8px;
+    padding: 1.25rem;
+    transition: transform 0.2s ease;
+}
+
+.comment-card:hover {
+    transform: translateY(-2px);
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.35rem;
+}
+
+.comment-number {
+    background-color: var(--accent-color);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+}
+
+.comment-name {
+    font-size: 1.05rem;
+    color: var(--text-primary);
+}
+
+.comment-email {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+.comment-email a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.comment-body {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.loading-text,
+.error-text {
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* Модальне вікно зворотного зв'язку */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(15, 23, 42, 0.75);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 480px;
+    position: relative;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.75rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: var(--text-primary);
+}
+
+.feedback-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.65rem 0.8rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: 2px solid var(--accent-color);
+    border-color: transparent;
+}
+
+.submit-btn {
+    margin-top: 0.5rem;
+    padding: 0.75rem;
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #1d4ed8;
+}
+
+/* Футер та блок localStorage */
+footer {
+    max-width: 800px;
+    margin: 3rem auto 0;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.storage-box {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-align: left;
+    word-break: break-word;
+}
+
+.storage-box h4 {
+    color: var(--accent-color);
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+}
+
+/* Медіазапит (Media Query) для вузьких екранів (адаптивність) */
+@media (max-width: 600px) {
+    .nav-menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header-top-bar {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}

@@ -3,34 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Моє Резюме</title>
+    <title>Резюме — Всеволод Ільницький</title>
+    <!-- 1. External CSS (Зовнішні стилі) -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- 2. Internal CSS (Внутрішні стилі) -->
+    <style>
+        .university-title {
+            color: #2563eb;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Іван Іваненко</h1>
-        <p>Веброзробник</p>
-        <a href="mailto:ivan@example.com">ivan@example.com</a>
+    <header id="main-header">
+        <div class="header-top-bar">
+            <button id="theme-toggle-btn" class="theme-btn" type="button">☀️ Денна тема</button>
+            <button id="open-modal-btn" class="feedback-trigger-btn" type="button">✉️ Зворотний зв'язок</button>
+        </div>
+        <h1>Всеволод Ільницький</h1>
+        <p class="subtitle">Студент 2 курсу, спеціальність «Кібербезпека»</p>
+        <nav class="nav-menu">
+            <a href="#about" class="nav-link">Про себе</a>
+            <a href="#experience" class="nav-link">Досвід</a>
+            <a href="#education" class="nav-link">Освіта</a>
+            <a href="#skills" class="nav-link">Навички</a>
+            <a href="#reviews" class="nav-link">Відгуки</a>
+        </nav>
     </header>
 
-    <main>
-        <section>
-            <h2>Досвід роботи</h2>
-            <ul>
-                <li><strong>Компанія Tech</strong> — Junior Frontend Розробник (2022 - зараз)</li>
-                <li><strong>Фриланс</strong> — Вебдизайнер (2021 - 2022)</li>
-            </ul>
+    <main class="container">
+        <!-- 3. Inline CSS (Вбудований стиль) -->
+        <section id="about" style="border-left: 4px solid #2563eb; padding-left: 1rem;">
+            <h2>Про себе</h2>
+            <p>Навчаюся у Львівській політехніці за спеціальністю «Кібербезпека». Цікавлюся захистом інформації, мережевою безпекою та вебтехнологіями.</p>
         </section>
 
-        <section>
+        <section id="experience">
+            <h2>Досвід</h2>
+            <div class="card">
+                <h3>Навчальні та особисті проєкти</h3>
+                <p class="date">2025 — теперішній час</p>
+                <ul class="custom-list">
+                    <li>Налаштування віртуальної лабораторії на Linux для вивчення основ адміністрування.</li>
+                    <li>Аналіз мережевого трафіку за допомогою Wireshark.</li>
+                    <li>Створення вебсторінок на HTML та React, ведення проєктів у Git.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="education">
             <h2>Освіта</h2>
-            <ul>
-                <li>Університет інформаційних технологій — Бакалавр комп'ютерних наук (2017 - 2021)</li>
+            <div class="card">
+                <h3 class="university-title">Національний університет «Львівська політехніка»</h3>
+                <p>Кафедра ІКТА, спеціальність «Кібербезпека», бакалаврат, 2025 — теперішній час</p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Навички</h2>
+            <ul class="skills-grid">
+                <li>Python / C#</li>
+                <li>Cisco Packet Tracer</li>
+                <li>Wireshark</li>
+                <li>Git & GitHub</li>
             </ul>
+            <p><a href="https://github.com" target="_blank" class="external-link">Мій GitHub</a></p>
+        </section>
+
+        <!-- Секція коментарів роботодавців (JSONPlaceholder API) -->
+        <section id="reviews">
+            <h2>Відгуки попередніх роботодавців</h2>
+            <div id="comments-list" class="comments-container"></div>
         </section>
     </main>
 
+    <!-- Модальне вікно зворотного зв'язку -->
+    <div id="feedback-modal" class="modal-overlay">
+        <div class="modal-content card">
+            <div class="modal-header">
+                <h2>Форма зворотного зв'язку</h2>
+                <button id="close-modal-btn" class="close-btn" type="button" aria-label="Закрити">&times;</button>
+            </div>
+            <form action="https://formspree.io/f/xvzwqpnk" method="POST" class="feedback-form">
+                <div class="form-group">
+                    <label for="user-name">Ім’я</label>
+                    <input type="text" id="user-name" name="name" placeholder="Введіть ваше ім’я" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-email">Email</label>
+                    <input type="email" id="user-email" name="email" placeholder="example@mail.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-phone">Номер телефону</label>
+                    <input type="tel" id="user-phone" name="phone" placeholder="+380 (XX) XXX-XX-XX" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-message">Повідомлення</label>
+                    <textarea id="user-message" name="message" rows="4" placeholder="Ваше повідомлення у довільній формі..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Надіслати</button>
+            </form>
+        </div>
+    </div>
+
     <footer>
-        <p>© 2023 Іван Іваненко. Всі права захищені.</p>
+        <div id="local-storage-info"></div>
+        <p>© 2026 Всеволод Ільницький. Всі права захищені.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
