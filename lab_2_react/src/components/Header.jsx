@@ -15,7 +15,7 @@ function Header({ theme, onToggleTheme }) {
         Всеволод Ільницький
       </h1>
       <p className="text-xl text-sky-600 dark:text-sky-400 font-medium mb-4">
-        Студент 2 курсу, спеціальність «Кібербезпека»
+        Студент 2 курсу НУ «Львівська політехніка», спеціальність «Кібербезпека», м. Львів
       </p>
 
       <nav className="flex flex-wrap justify-center gap-6 text-sm font-semibold text-slate-600 dark:text-slate-300">
